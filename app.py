@@ -38,15 +38,21 @@ class Dialog(QDialog):
         pass
     
     def get_category(self):
-        category = self.ui.category_grpbox.findChild(QComboBox,"category_comb")
-        category_text = str(category.currentText())
-        print(category_text)
+       # category = self.ui.category_grpbox.findChild(QComboBox,"category_comb")
+       # category_text = str(category.currentText())
+        print(self.get_cwtext(self.ui.category_grpbox,QComboBox,"category_comb"))
 
     def get_location(self):
         pass
     
     def get_days(self):
         pass
+    
+    def get_cwtext(self,parent,child_widget_type,child_name):
+        child = parent.findChild(child_widget_type,child_name)
+        child_text = str(child.currentText())
+        return child_text
+
 
 def main():
     app = QApplication(sys.argv)
