@@ -1,6 +1,6 @@
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow,QWidget,QTableWidget,QTableWidgetItem,QPushButton,QPlainTextEdit, QDialog, QComboBox, QCheckBox,QTimeEdit
+from PyQt5.QtWidgets import QApplication, QMainWindow,QWidget,QTableWidget,QTableWidgetItem,QPushButton,QPlainTextEdit, QDialog, QComboBox, QCheckBox,QTimeEdit,QSpinBox
 from dialog import Ui_Dialog
 from PyQt5.QtCore import pyqtSlot
 from operator import sub
@@ -50,7 +50,11 @@ class Dialog(QDialog):
         time_to = self.get_time_to()
         time_from = self.get_time_from()
         time_interval = self.get_time_available()
-        info_pre = (loc,cat,prof,days,time_to,time_from,time_interval)
+        subjects = self.get_subject()
+        num_courses = self.get_num_course_interval()
+        
+        
+        info_pre = (loc,cat,prof,days,time_to,time_from,time_interval,subjects,num_courses)
         return info_pre
         
     def get_time_available(self):
@@ -106,7 +110,18 @@ class Dialog(QDialog):
         #note: choice of monday is arbitrary
         monday.repaint()
         
-            
+    def get_subject(self):
+        return (self.get_cwtext(self.ui.subject_grpbox,QComboBox,"subject_comb"),)
+
+    def get_num_course_interval(self):
+#        min_course_w = self.get_child_widget(self.ui.min_courses_grpbox,QSpinBox,"min_coursees_spin").value()
+        min_course_w = self.ui.min_courses_grpbox.findChild(QSpinBox,"min_courses_spin")
+        min_num_course = min_course_w.value()
+#        max_course_w = self.get_child_widget(self.ui.max_courses_grpbox, QSpinBox, "max_courses_spin").value()
+        max_course_w = self.ui.max_courses_grpbox.findChild(QSpinBox,"max_courses_spin")
+        max_num_course = max_course_w.value()
+        return (min_num_course,max_num_course)
+
 
     def get_child_widget(self,parent,child_widget_type,child_name):
         child = parent.findChild(child_widget_type,child_name)

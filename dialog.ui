@@ -229,6 +229,88 @@
     </item>
    </layout>
   </widget>
+  <widget class="QGroupBox" name="min_courses_grpbox">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>260</y>
+     <width>301</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="professor_layout_horiz_2">
+    <item>
+     <widget class="QLabel" name="min_courses_lbl">
+      <property name="text">
+       <string>Minimum Number of Courses:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QSpinBox" name="min_courses_spin"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="max_courses_grpbox">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>310</y>
+     <width>301</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="professor_layout_horiz_3">
+    <item>
+     <widget class="QLabel" name="professor_lbl_3">
+      <property name="text">
+       <string>Maximum Number of Courses:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QSpinBox" name="max_courses_spin"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="subject_grpbox">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>360</y>
+     <width>341</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="location_layout_horiz_3">
+    <item>
+     <widget class="QLabel" name="subject_lbl">
+      <property name="text">
+       <string>Subject:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QComboBox" name="subject_comb">
+      <item>
+       <property name="text">
+        <string>Computer Science</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Mathematics</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Statistics</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+   </layout>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
