@@ -5,6 +5,8 @@ from dialog import Ui_Dialog
 from PyQt5.QtCore import pyqtSlot
 from operator import sub
 
+
+
 class Dialog(QDialog):
     def __init__(self):
         super(Dialog,self).__init__()
@@ -14,6 +16,10 @@ class Dialog(QDialog):
         
         info = []
 
+        self.out_file = open('workfile','w')
+
+        
+        
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
 
@@ -52,9 +58,24 @@ class Dialog(QDialog):
         time_interval = self.get_time_available()
         subjects = self.get_subject()
         num_courses = self.get_num_course_interval()
-        
+
         
         info_pre = (loc,cat,prof,days,time_to,time_from,time_interval,subjects,num_courses)
+        #go to beginning of file
+        self.out_file.seek(0)
+        #delete contents
+        self.out_file.truncate()
+        #finally, write new tuple to file
+ #       self.out_file.write(str(info_pre))
+        
+        for x in info_pre:
+            y = str(x)
+            z = y.strip('(')
+            q = z.strip(')')
+            self.out_file.write(str(q) + ";")
+            
+
+        
         return info_pre
         
     def get_time_available(self):
